@@ -15,9 +15,11 @@ class CreateBusinessesTable extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('slogan');
+            $table->string('adress');
+            $table->string('zip_code');
             $table->string('kvk');
             $table->string('btw');
             $table->string('logo');

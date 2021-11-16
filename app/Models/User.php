@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         $this->hasMany(Business::class);
     }
+
+    public function kwitanties()
+    {
+        $this->hasMany(Kwitantie::class);
+    }
 }

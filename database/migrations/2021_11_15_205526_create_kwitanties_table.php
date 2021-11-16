@@ -15,13 +15,16 @@ class CreateKwitantiesTable extends Migration
     {
         Schema::create('kwitanties', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('kwitantie_number');
             $table->string('date');
             $table->string('to');
-            $table->enum('is_business', [0, 1]);
-            $table->string('adress');
-            $table->string('zip_code');
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 

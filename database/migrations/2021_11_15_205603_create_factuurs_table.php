@@ -15,12 +15,16 @@ class CreateFactuursTable extends Migration
     {
         Schema::create('facturen', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('business_id');
             $table->string('factuur_number');
             $table->string('date');
             $table->string('to');
-            $table->string('adress');
-            $table->string('zip_code');
             $table->timestamps();
+
+            $table->foreign('business_id')
+            ->references('id')
+            ->on('businesses')
+            ->onDelete('cascade');
         });
     }
 

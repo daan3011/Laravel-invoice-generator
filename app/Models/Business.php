@@ -17,9 +17,11 @@ class Business extends Model
      * @var string[]
      */
     protected $fillable = [
-        //'user_id',
+        'user_id',
         'name',
         'slogan',
+        'adress',
+        'zip_code',
         'kvk',
         'btw',
         'logo',
@@ -27,5 +29,10 @@ class Business extends Model
     
     public function user() {
         return $this->belongsTo(user::class);
+    }
+
+    public function factuur()
+    {
+        $this->hasMany(Factuur::class);
     }
 }

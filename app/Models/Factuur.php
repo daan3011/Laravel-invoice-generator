@@ -26,4 +26,9 @@ class Factuur extends Model
     public function business() {
         return $this->belongsTo(Business::class);
     }
+
+    public function factuurServices()
+    {
+        $this->hasMany(FactuurServices::class);
+    }
 }

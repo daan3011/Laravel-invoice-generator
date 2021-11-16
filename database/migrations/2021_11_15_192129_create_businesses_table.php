@@ -15,13 +15,18 @@ class CreateBusinessesTable extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id');
             $table->string('name');
             $table->string('slogan');
             $table->string('kvk');
             $table->string('btw');
             $table->string('logo');
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 

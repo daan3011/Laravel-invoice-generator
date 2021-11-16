@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [EmployeeController::class, 'showEmployees']);
 
 Route::get('/employee/pdf', [EmployeeController::class, 'createPDF']);
+
+Route::get('/signup-test', [TestController::class, 'index']);
 
 Auth::routes();
 
